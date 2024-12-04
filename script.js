@@ -40,7 +40,11 @@ texture1.magFilter = THREE.NearestFilter;
 texture2.magFilter = THREE.NearestFilter;
 texture3.magFilter = THREE.NearestFilter;
 texture4.magFilter = THREE.NearestFilter;
-
+// better performance and gpu load will be low
+texture1.generateMipmaps = false;
+texture2.generateMipmaps = false;
+texture3.generateMipmaps = false;
+texture4.generateMipmaps = false;
 // Canvas
 const canvas = document.getElementById("webgl");
 
