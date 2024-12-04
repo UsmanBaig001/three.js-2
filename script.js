@@ -30,11 +30,16 @@ const texturesArray = [texture1, texture2, texture3, texture4];
 // texture.rotation = Math.PI * 0.25;
 // texture.center.x = 0.5;
 // texture.center.y = 0.5;
-
+// this is used to aviod the blurry ness on the zoom effect
 texture1.minFilter = THREE.NearestFilter;
 texture2.minFilter = THREE.NearestFilter;
 texture3.minFilter = THREE.NearestFilter;
 texture4.minFilter = THREE.NearestFilter;
+// this filter is used to fix the blurryness of the texture
+texture1.magFilter = THREE.NearestFilter;
+texture2.magFilter = THREE.NearestFilter;
+texture3.magFilter = THREE.NearestFilter;
+texture4.magFilter = THREE.NearestFilter;
 
 // Canvas
 const canvas = document.getElementById("webgl");
