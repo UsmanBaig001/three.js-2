@@ -15,12 +15,26 @@ loadingManager.onProgress = (url, loaded, total) =>
 loadingManager.onError = () => console.error("Error loading resource");
 
 const textureLoader = new THREE.TextureLoader(loadingManager);
-const texture = textureLoader.load(
-  "./textures/Crate.webp",
-  () => console.log("Texture loaded successfully!"),
-  undefined,
-  () => console.error("Error loading texture")
-);
+const texture1 = textureLoader.load("./textures/Crate.webp");
+const texture2 = textureLoader.load("./textures/Crate.jpg");
+const texture3 = textureLoader.load("./textures/Checker.png");
+const texture4 = textureLoader.load("./textures/Cratew.jpg");
+const texturesArray = [texture1, texture2, texture3, texture4];
+// texture.repeat.x = 2;
+// texture.repeat.y = 3;
+// texture.wrapS = THREE.RepeatWrapping;
+// texture.wrapT = THREE.MirroredRepeatWrapping;
+
+// texture.offset.x = 0.5;
+// texture.offset.y = 0.5;
+// texture.rotation = Math.PI * 0.25;
+// texture.center.x = 0.5;
+// texture.center.y = 0.5;
+
+texture1.minFilter = THREE.NearestFilter;
+texture2.minFilter = THREE.NearestFilter;
+texture3.minFilter = THREE.NearestFilter;
+texture4.minFilter = THREE.NearestFilter;
 
 // Canvas
 const canvas = document.getElementById("webgl");
@@ -42,7 +56,7 @@ const meshes = [];
 const parametersArray = [];
 
 for (let i = 0; i < 4; i++) {
-  const material = new THREE.MeshBasicMaterial({ map: texture });
+  const material = new THREE.MeshBasicMaterial({ map: texturesArray[i] });
   const mesh = new THREE.Mesh(geometry, material);
   mesh.position.set(
     Math.sin((i * Math.PI) / 2) * 1.001,
@@ -80,7 +94,7 @@ for (let i = 0; i < 4; i++) {
 }
 
 // Axes Helper
-// const axesHelper = new THREE.AxesHelper();
+// const axesHelper = new THREE.AxesHelper(1, 1, 1);
 // scene.add(axesHelper);
 
 // Camera
