@@ -2,7 +2,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "dat.gui";
 import gsap from "gsap";
-
 // Debug GUI
 const gui = new dat.GUI();
 
@@ -15,10 +14,10 @@ loadingManager.onProgress = (url, loaded, total) =>
 loadingManager.onError = () => console.error("Error loading resource");
 
 const textureLoader = new THREE.TextureLoader(loadingManager);
-const texture1 = textureLoader.load("./textures/Crate.webp");
-const texture2 = textureLoader.load("./textures/Crate.jpg");
-const texture3 = textureLoader.load("./textures/Checker.png");
-const texture4 = textureLoader.load("./textures/Minecraft.png");
+const texture1 = textureLoader.load("/textures/Crate.webp");
+const texture2 = textureLoader.load("/textures/Crate.jpg");
+const texture3 = textureLoader.load("/textures/Checker.png");
+const texture4 = textureLoader.load("/textures/Minecraft.png");
 const texturesArray = [texture1, texture2, texture3, texture4];
 // texture.repeat.x = 2;
 // texture.repeat.y = 3;
